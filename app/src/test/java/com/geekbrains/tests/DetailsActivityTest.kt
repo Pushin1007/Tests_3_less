@@ -18,13 +18,17 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 
+//Robolectric необходимый код
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [Build.VERSION_CODES.O_MR1])
+
 class DetailsActivityTest {
 
+    //получение контекста
     private lateinit var scenario: ActivityScenario<DetailsActivity>
     private lateinit var context: Context
 
+    //сценарий
     @Before
     fun setup() {
         scenario = ActivityScenario.launch(DetailsActivity::class.java)
@@ -121,6 +125,7 @@ class DetailsActivityTest {
         assertEquals(count, bundle?.getInt(DetailsActivity.TOTAL_COUNT_EXTRA, 0))
     }
 
+    //обязательно закрываем
     @After
     fun close() {
         scenario.close()
